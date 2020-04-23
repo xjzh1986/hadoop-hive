@@ -1,0 +1,28 @@
+
+spring:
+  datasource:
+    druid:
+      username: root
+      password: 1234
+      jdbcUrl: jdbc:hive2://hadoop1:10000/default
+      driverClassName: org.apache.hive.jdbc.HiveDriver
+      initialSize: 5
+      minIdle: 5
+      maxActive: 20
+      maxWait: 60000
+      timeBetweenEvictionRunsMillis: 60000
+      minEvictableIdleTimeMillis: 300000
+      validationQuery: SELECT 1 FROM DUAL
+      testWhileIdle: false
+      testOnBorrow: false
+      testOnReturn: false
+      poolPreparedStatements: true
+      filters: stat
+      maxPoolPreparedStatementPerConnectionSize: 20
+      useGlobalDataSourceStat: true
+      connectionProperties: druid.stat.mergeSql=true;druid.stat.slowSqlMillis=10000
+logging:
+  level:
+    com.example: debug
+server:
+  port: 8080
